@@ -1,4 +1,4 @@
-# Multi Identity Authentication
+# Multi Account Authentication
 
 If you want to authenticate the user with multiple accounts simultaneously like in a calendar app.
 

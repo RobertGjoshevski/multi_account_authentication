@@ -1,4 +1,4 @@
-library multi_identity_authentication;
+library multi_acount_authentication;
 
 export 'src/auth_credentials.dart';
 export 'src/auth_user.dart';

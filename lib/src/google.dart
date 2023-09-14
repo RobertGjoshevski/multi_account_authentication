@@ -2,11 +2,11 @@ import 'package:googleapis/oauth2/v2.dart';
 import 'package:googleapis_auth/googleapis_auth.dart' as gauth;
 import 'package:http/http.dart';
 import 'package:http/http.dart' as http;
-import 'package:multi_identity_authentication/src/oauth.dart';
 
 import 'auth_credentials.dart';
 import 'auth_user.dart';
 import 'client_id.dart';
+import 'oauth.dart';
 
 String _reverseAppId(String appId) {
   final parts = appId.split('.');

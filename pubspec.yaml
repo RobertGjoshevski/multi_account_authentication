@@ -1,8 +1,7 @@
-name: multi_identity_authentication
-description: A new Flutter package project.
+name: multi_account_authentication
+description: Simple simultaneous authentication of multiple accounts
 version: 1.0.0
-homepage: https://github.com/lowski/multi_identity_authentication
-publish_to: none
+homepage: https://github.com/lowski/multi_account_authentication
 
 environment:
   sdk: ">=3.0.3 <4.0.0"
