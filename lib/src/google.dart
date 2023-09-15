@@ -14,6 +14,8 @@ String _reverseAppId(String appId) {
 }
 
 class GoogleAuthCredentials extends AuthCredentials {
+  static const providerId = 'google';
+
   final gauth.AccessCredentials _accessCredentials;
   final Userinfo _userInfo;
 
@@ -117,17 +119,19 @@ class GoogleAuthCredentials extends AuthCredentials {
 
   /*************
    * 
-   * STORABLE
+   * Serialization
    * 
    *************/
 
   ///
-  Map get data => {
+  @override
+  Map<String, dynamic> toJson() => {
         'ac': _accessCredentials.toJson(),
         'ui': _userInfo.toJson(),
+        'pv': providerId,
       };
 
-  GoogleAuthCredentials.fromMap(Map map)
+  GoogleAuthCredentials.fromJson(Map map)
       : _accessCredentials = gauth.AccessCredentials.fromJson(
           map['ac'],
         ),

@@ -13,4 +13,18 @@ class AuthUser {
 
   @override
   String toString() => 'AuthUser($id, $email, $name)';
+
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'name': name,
+        'email': email,
+        'photoUrl': photoUrl,
+      };
+
+  factory AuthUser.fromJson(Map map) => AuthUser(
+        id: map['id'],
+        name: map['name'],
+        email: map['email'],
+        photoUrl: map['photoUrl'],
+      );
 }
