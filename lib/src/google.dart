@@ -13,6 +13,15 @@ String _reverseAppId(String appId) {
   return parts.reversed.join('.');
 }
 
+extension on Userinfo {
+  AuthUser get asAuthUser => AuthUser(
+        id: id ?? '',
+        name: name ?? '',
+        email: email ?? '',
+        photoUrl: picture,
+      );
+}
+
 class GoogleAuthCredentials extends AuthCredentials {
   static const providerId = 'google';
 
@@ -46,11 +55,7 @@ class GoogleAuthCredentials extends AuthCredentials {
   ///
   /// Use [currentUser] to get the latest information.
   @override
-  AuthUser get user => AuthUser(
-        id: _userInfo.id ?? '',
-        name: _userInfo.name ?? '',
-        email: _userInfo.email ?? '',
-      );
+  AuthUser get user => _userInfo.asAuthUser;
 
   @override
   String toString() => 'GoogleAuthCredentials($user)';
@@ -95,11 +100,7 @@ class GoogleAuthCredentials extends AuthCredentials {
   /// This does not update [user].
   Future<AuthUser> get currentUser async {
     final userInfo = await Oauth2Api(client).userinfo.v2.me.get();
-    return AuthUser(
-      id: userInfo.id ?? '',
-      name: userInfo.name ?? '',
-      email: userInfo.email ?? '',
-    );
+    return userInfo.asAuthUser;
   }
 
   /// Log out of Google. You must have set [googleClientId] before calling this.
