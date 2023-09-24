@@ -1,6 +1,5 @@
 import 'package:googleapis/oauth2/v2.dart';
 import 'package:googleapis_auth/googleapis_auth.dart' as gauth;
-import 'package:http/http.dart';
 import 'package:http/http.dart' as http;
 
 import 'auth_credentials.dart';
@@ -39,7 +38,7 @@ class GoogleAuthCredentials extends AuthCredentials {
           _clientId.secret,
         ),
         _accessCredentials,
-        Client(),
+        baseClient,
       );
 
   GoogleAuthCredentials._({
