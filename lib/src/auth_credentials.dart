@@ -10,19 +10,20 @@ abstract class AuthCredentials {
 
   Map<String, dynamic> toJson();
 
-  /// The base client for the authenticated client.
+  /// Create a new baseClient for the authenticated client.
   ///
   /// Overriding this is useful for example if you want to use a proxy in
   /// development which would could be done like this:
   ///
   /// ```dart
-  /// Client get baseClient => IOClient(
+  /// final credentials = AuthCredentials.fromJson(json);
+  /// credentials.createBaseClient = () => IOClient(
   ///     HttpClient()
   ///       ..findProxy = (uri) => 'PROXY localhost:8000'
   ///       ..badCertificateCallback = (cert, host, port) => true,
   ///   );
   /// ```
-  Client get baseClient => Client();
+  Client Function() createBaseClient = () => Client();
 
   /// Create credentials from a JSON map.
   factory AuthCredentials.fromJson(Map map) {

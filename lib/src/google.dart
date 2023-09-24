@@ -38,7 +38,7 @@ class GoogleAuthCredentials extends AuthCredentials {
           _clientId.secret,
         ),
         _accessCredentials,
-        baseClient,
+        createBaseClient(),
       );
 
   GoogleAuthCredentials._({

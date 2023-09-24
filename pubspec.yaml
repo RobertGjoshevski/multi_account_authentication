@@ -1,6 +1,6 @@
 name: multi_account_authentication
 description: Simple simultaneous authentication of multiple accounts
-version: 1.0.3
+version: 1.0.4
 homepage: https://github.com/lowski/multi_account_authentication
 
 environment:
